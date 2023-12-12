@@ -1,0 +1,35 @@
+rp = 0.3;
+rq = 0.5;
+rB = 1.2;
+rc = 0.5;
+rA = 0.3;
+ru = 0.2;
+rg = 0.95;
+
+P1 = (request, rq*2).P2_3;
+P2_3 = (generate, rg).P4_5;
+P4_5 = (response, rp).P6_7;
+P6_7 = (request, rq).P8_10 + (sendBob, rB).P9_11;
+P8_10 = (generate, rg).P12_15 + (sendBob, rB).P13_16;
+P9_11 = (request, rq).P13_16 + (sendAlice, rA).P14_17;
+P12_15 = (response, rp).P18 + (sendBob, rB).P19_22;
+P13_16 = (generate, rg).P19_22 + (sendAlice, rA).P20_23;
+P14_17 = (request, rq).P20_23 + (confirm, rc).P21_24;
+P18 = (sendBob, rB*2).P25_26;
+P19_22 = (response, rp).P25_26 + (sendAlice, rA).P27_29;
+P20_23 = (generate, rg).P27_29 + (confirm, rc).P28_30;
+P21_24 = (usekey, ru).P1 + (request, rq).P28_30;
+P25_26 = (sendBob, rB).P32 + (sendAlice, rA).P31_33;
+P27_29 = (response, rp).P31_33 + (confirm, rc).P34_35;
+P28_30 = (usekey, ru).P2_3 + (generate, rg).P34_35;
+P31_33 = (confirm, rc).P36_39 + (sendBob, rB).P37_38;
+P32 = (sendAlice, rA*2).P37_38;
+P34_35 = (usekey, ru).P4_5 + (response, rp).P36_39;
+P36_39 = (usekey, ru).P6_7 + (sendBob, rB).P40_42;
+P37_38 = (confirm, rc).P40_42 + (sendAlice, rA).P41;
+P40_42 = (usekey, ru).P9_11 + (sendAlice, rA).P43_44;
+P41 = (confirm, rc*2).P43_44;
+P43_44 = (usekey, ru).P14_17 + (confirm, rc).P45;
+P45 = (usekey, ru*2).P21_24;
+
+P1

@@ -1,0 +1,19 @@
+rp = 1.0;
+rq = 1.0;
+rB = 1.0;
+rc = 1.0;
+rA = 1.0;
+ru = 1.1;
+rg = 1.0;
+
+KDC = (request, T).(generate,rg).(response, rp).KDC;
+
+Alice = (request, rq).(response, T).Alice1;
+Alice1 = (sendBob, rB).(sendAlice, T).(confirm, rc).Alice2;
+Alice2 = (usekey, ru).Alice;
+
+Bob = (sendBob, T).(sendAlice, rA).(confirm, T).Bob1;
+Bob1 = (usekey, T).Bob;
+
+KDC <request, response> ((Alice <sendBob, sendAlice, confirm, usekey> Bob))
+

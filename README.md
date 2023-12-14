@@ -13,3 +13,6 @@ components;
 7. Definition of the infinitesimal generator matrix Q of the Markov process underlying the system;
 8. Definition of the steady state probabilities, throughput and utilisation using theoretical formulas;
 10. Encoding of the system with the PEPA Eclipse Plug-in and computation of some measures.
+
+## Contributors
+The projetc was accomplished together with Laura Martignon (879707@stud.unive.it) and [Riccardo Maso](https://github.com/RiccardoMaso) (885271@stud.unive.it), as part of the course of _Formal Methods for System Verification_ (prof. Sabina Rossi), from the master degree of Computer Science and Information Technology, from the Ca' Foscari University of Venice.
